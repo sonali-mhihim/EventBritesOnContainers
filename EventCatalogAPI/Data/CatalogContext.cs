@@ -26,8 +26,8 @@ namespace EventCatalogAPI.Data
                 e.Property(c => c.Id).IsRequired().UseHiLo("catalog_event_hilo");
                 e.Property(c => c.Name).IsRequired().HasMaxLength(100);
                 e.Property(c => c.Price).IsRequired();
-                e.Property(c => c.Date).IsRequired() .HasColumnType("Date");
-                e.Property(c => c.Location).IsRequired() .HasColumnName("Location") .HasMaxLength(200);
+                e.Property(c => c.Date).IsRequired().HasColumnType("Date");
+                e.Property(c => c.Location).IsRequired().HasMaxLength(200);
                 e.HasOne(c => c.EventHost).WithMany().HasForeignKey(c => c.CatalogHostId);
                 e.HasOne(c => c.EventType).WithMany().HasForeignKey(c => c.CatalogTypeId);
             });
