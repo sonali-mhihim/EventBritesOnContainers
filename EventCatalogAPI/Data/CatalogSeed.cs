@@ -78,7 +78,11 @@ namespace EventCatalogAPI.Data
                 },
                 new CatalogEventType
                 {
-                    Name="Tourism "
+                    Name="Tourism"
+                },
+                new CatalogEventType
+                {
+                    Name="Fitness"
                 }
             };
 
@@ -95,7 +99,7 @@ namespace EventCatalogAPI.Data
                 new CatalogEvent { CatalogTypeId = 1, CatalogHostId = 2, Description = "Teens are invited to make Internet-famous iced whipped/dalgona coffee", Name = "Whipped Dalgona Iced Coffee", Price = 0, PictureUrl = "http://externalcatalogbaseurltobereplaced/api/pic/5", Date=new DateTime(2020,7,18), Location="Coffee Reserve at Downtown Park, Sammamish" },
                 new CatalogEvent { CatalogTypeId = 2, CatalogHostId = 3, Description = "Kidding around yoga blends the teachings and values of traditional yoga", Name = "Mommy and Me Yoga session", Price = 5, PictureUrl = "http://externalcatalogbaseurltobereplaced/api/pic/6", Date=new DateTime(2020,11,11), Location="School of Meditation"},
                 new CatalogEvent { CatalogTypeId = 2, CatalogHostId = 3, Description = "Learn about meditation, it's history, it's benefits and how to do it", Name = "Online Meditation Event", Price = 50, PictureUrl = "http://externalcatalogbaseurltobereplaced/api/pic/7", Date=new DateTime(2020,9,6), Location="Online event" },
-                new CatalogEvent { CatalogTypeId = 1, CatalogHostId = 5, Description = "Running Through Runyon Canyon", Name = "Running in Runyon", Price = 99, PictureUrl = "http://externalcatalogbaseurltobereplaced/api/pic/8", Date=new DateTime(2020,9,6), Location="Runyon Canyon" },
+                new CatalogEvent { CatalogTypeId = 4, CatalogHostId = 5, Description = "Running Through Runyon Canyon", Name = "Running in Runyon", Price = 99, PictureUrl = "http://externalcatalogbaseurltobereplaced/api/pic/8", Date=new DateTime(2020,9,6), Location="Runyon Canyon" },
             };
         }
         
