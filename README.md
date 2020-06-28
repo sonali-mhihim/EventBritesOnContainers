@@ -11,15 +11,18 @@ We have installed entity framework core software through nugget package that aut
 
 Data:
 We have created two special class called Catalog Context and Catalog Seed class.
+
 1 Within Catalog Context class, we have provided instructions to the Entity framework to what tables we have to create and how we have to create.
+
 2 Within Catalog Seed Class, we have written two methods:
+
   * Update Migration Method  is used to updates the database schema based on the last migration snapshot.
   * Seed method is used to populate our predefined data within the database. It is implemented through program.cs class.
 	
 Dependency Injection:
-1 We have used dependency injection to coupled our application loosely and injected our dependency through constructor.
-2 We have injected dependency for our database location in Catalog Context class through constructor by passing a parameter "options".
-3 We have also injected dependency for  Catalog context database and Picture URL in Catalog Controller through constructor by passing parameters "context" for catalog Db and "config" for picture URL.
+1. We have used dependency injection to coupled our application loosely and injected our dependency through constructor.
+2. We have injected dependency for our database location in Catalog Context class through constructor by passing a parameter "options".
+3. We have also injected dependency for  Catalog context database and Picture URL in Catalog Controller through constructor by passing parameters "context" for catalog Db and "config" for picture URL.
 
 Migration:
 We have installed  Add Migration feature through package manager console library  that uses command line tool  to convert C# code into SQL through  C# PowerShell scripting language.
