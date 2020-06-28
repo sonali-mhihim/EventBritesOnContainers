@@ -11,15 +11,15 @@ We have installed entity framework core software through nugget package that aut
 
 Data:
 We have created two special class called Catalog Context and Catalog Seed class.
-	1. Within Catalog Context class, we have provided instructions to the Entity framework to what tables we have to create and how we have to create.
-	2. Within Catalog Seed Class, we have written two methods:
-	• Update Migration Method  is used to updates the database schema based on the last migration snapshot.
-	• Seed method is used to populate our predefined data within the database. It is implemented through program.cs class.
+1. Within Catalog Context class, we have provided instructions to the Entity framework to what tables we have to create and how we have to create.
+2. Within Catalog Seed Class, we have written two methods:
+   1. Update Migration Method  is used to updates the database schema based on the last migration snapshot.
+   2. Seed method is used to populate our predefined data within the database. It is implemented through program.cs class.
 	
 Dependency Injection:
-	•  We have used dependency injection to coupled our application loosely and injected our dependency through constructor. 
-	• We have injected dependency for our database location in Catalog Context class through constructor by passing a parameter "options".
-	• We have also injected dependency for  Catalog context database and Picture URL in Catalog Controller through constructor by passing parameters "context" for catalog Db and "config" for picture URL.
+* We have used dependency injection to coupled our application loosely and injected our dependency through constructor. 
+* We have injected dependency for our database location in Catalog Context class through constructor by passing a parameter "options".
+* We have also injected dependency for  Catalog context database and Picture URL in Catalog Controller through constructor by passing parameters "context" for catalog Db and "config" for picture URL.
 
 Migration:
 We have installed  Add Migration feature through package manager console library  that uses command line tool  to convert C# code into SQL through  C# PowerShell scripting language.
@@ -29,12 +29,12 @@ We have Created special folder called "wwwroot" to store our events images. Beca
 
 Controllers:
 We have created two controllers:
-	1. Pic controller to send pics to the client through file.
-	2. Within Catalog controller, we have created four APIs:
-		a. First one  to send the list of all the events to the clients by page index and page size.
-		b. Second one is to  send  the list of events by CatalogType.
-		c. Third one is to send the list of events by CatalogHost.
-		d. Fourth one is to filter events by CatalogTypeId and CatalogHostId.
+1. Pic controller to send pics to the client through file.
+2. Within Catalog controller, we have created four APIs:
+   1. First one  to send the list of all the events to the clients by page index and page size.
+   2. Second one is to  send  the list of events by CatalogType.
+   3. Third one is to send the list of events by CatalogHost.
+   4. Fourth one is to filter events by CatalogTypeId and CatalogHostId.
 		
 ViewModels:
 We have created a generic class called paginated events view Model that aggregated information from various table and send information to the client as a single information. 
@@ -46,17 +46,12 @@ Appsettings.Json:
 This file is used to place  things  that are meant to change in future. It includes configuration string for SQL server, and External base Url for pictures.
 
 **KEY FEATURES:**
-	• Users can get event's images by Id.
-	
-	• Users can query events by page index and page size.
-	
-	• Users can query events by catalog host.
-	
-	• Users can query events by catalog type.
-	
-	• Users can query events by CatalogTypeId.
-	
-	• Users can query events by CatalogHostId.
+* Users can get event's images by Id.
+* Users can query events by page index and page size.
+* Users can query events by catalog host.
+* Users can query events by catalog type.
+* Users can query events by CatalogTypeId.
+* Users can query events by CatalogHostId.
 	
 
 **SCREENSHOTS:**
