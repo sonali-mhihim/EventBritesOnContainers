@@ -69,9 +69,12 @@ This file is used to place  things  that are meant to change in future. It inclu
 **SUPPORTED PLATFORMS:** IIS Express and Postman
 
 **REQUIREMENTS TO RUN THE DEMO**
-	•  Visual studio 2019
-	•  IIS Express
-	•  Postman
+
+•  Visual studio 2019
+
+•  IIS Express
+
+•  Postman
   
 **YOUTUBE LINK:**
 
