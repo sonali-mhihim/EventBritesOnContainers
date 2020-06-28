@@ -61,9 +61,9 @@ This file is used to place  things  that are meant to change in future. It inclu
 
 **SCREENSHOTS:**
 
-![Event Page](https://github.com/sonali-mhihim/EventBritesOnContainers/blob/master/EventBritesOnContainers/EventCatalogAPI/Docs/Screenshots/Event pic.PNG)
+![Event pic](https://github.com/sonali-mhihim/EventBritesOnContainers/blob/master/EventBritesOnContainers/EventCatalogAPI/Docs/Screenshots/Eventpic.PNG)
 
-![Catalog events Page](https://github.com//sonali-mhihim/EventBritesOnContainers/blob/master/EventBritesOnContainers/EventCatalogAPI/Docs/Screenshots/Catalog events pic.PNG)
+![Catalog events Pic](https://github.com//sonali-mhihim/EventBritesOnContainers/blob/master/EventBritesOnContainers/EventCatalogAPI/Docs/Screenshots/Catalogeventspic.PNG)
 
 
 
