@@ -61,11 +61,9 @@ This file is used to place  things  that are meant to change in future. It inclu
 
 **SCREENSHOTS:**
 
-![Event pic](https://github.com/sonali-mhihim/EventBritesOnContainers/blob/master/EventBritesOnContainers/EventCatalogAPI/Docs/Screenshots/Eventpic.PNG)
+![Event pic](https://github.com/sonali-mhihim/EventBritesOnContainers/blob/master/EventCatalogAPI/Docs/Screenshots/Eventpic.png)
 
-![Catalog events Pic](https://github.com//sonali-mhihim/EventBritesOnContainers/blob/master/EventBritesOnContainers/EventCatalogAPI/Docs/Screenshots/Catalogeventspic.PNG)
-
-
+![Catalog events Pic](https://github.com/sonali-mhihim/EventBritesOnContainers/blob/master/EventCatalogAPI/Docs/Screenshots/Catalogeventspic.png)
 
 
 SUPPORTED PLATFORMS: IIS Express and Postman
