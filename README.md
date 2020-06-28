@@ -60,9 +60,9 @@ KEY FEATURES:
 	
 
 SCREENSHOTS:
-![Event Pic](https://github.com/sonali-mhihim/EventBritesOnContainers/blob/master/EventCatalogAPI/EventCatalogAPI/Docs/Screenshots/Event pic.PNG)
+![Event Pic](https://github.com/sonali-mhihim/EventBritesOnContainers/blob/master/EventBritesOnContainers/EventCatalogAPI/Docs/Screenshots/Event pic.PNG)
 
-![Catalog events pic](https://github.com//sonali-mhihim/EventBritesOnContainers/blob/master/EventCatalogAPI/EventCatalogAPI/Docs/Screenshots/Catalog events pic.PNG)
+![Catalog events pic](https://github.com//sonali-mhihim/EventBritesOnContainers/blob/master/EventBritesOnContainers/EventCatalogAPI/Docs/Screenshots/Catalog events pic.PNG)
 
 
 
