@@ -56,21 +56,22 @@ This file is used to place  things  that are meant to change in future. It inclu
 
 **SCREENSHOTS:**
 
-![Event Page](https://github.com/sonali-mhihim/EventBritesOnContainers/blob/master/EventBritesOnContainers/EventCatalogAPI/Docs/Screenshots/Event pic.PNG)
+![Event pic](https://github.com/sonali-mhihim/EventBritesOnContainers/blob/master/EventCatalogAPI/Docs/Screenshots/Eventpic.png)
 
-![Catalog events Page](https://github.com//sonali-mhihim/EventBritesOnContainers/blob/master/EventBritesOnContainers/EventCatalogAPI/Docs/Screenshots/Catalog events pic.PNG)
-
-
+![Catalog events Pic](https://github.com/sonali-mhihim/EventBritesOnContainers/blob/master/EventCatalogAPI/Docs/Screenshots/Catalogeventspic.png)
 
 
-SUPPORTED PLATFORMS: IIS Express and Postman
+**SUPPORTED PLATFORMS:** IIS Express and Postman
 
-REQUIREMENTS TO RUN THE DEMO
-	•  Visual studio 2019
-	•  IIS Express
-	•  Postman
+**REQUIREMENTS TO RUN THE DEMO**
+
+•  Visual studio 2019
+
+•  IIS Express
+
+•  Postman
   
-YOUTUBE LINK:
+**YOUTUBE LINK:**
 
 https://youtu.be/zTovwg-P2Ys
 
