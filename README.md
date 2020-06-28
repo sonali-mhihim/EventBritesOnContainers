@@ -1,6 +1,6 @@
-PROJECT TITLE:  Catalog  Microservice
+**PROJECT TITLE:**  Catalog  Microservice
 
-PROJECT DESCRIPTION:
+**PROJECT DESCRIPTION:**
 Catalog microservice is one of the microservices within Eventbrite website that displays all the events  to the users based on type of events and host of events. It also allows users to query events by the catalogHostId and catalogTypeId. This project uses the following patterns and Features:
 
 Domain:
@@ -45,7 +45,7 @@ Within this file we have pulled all the dependency for our microservices.
 Appsettings.Json:
 This file is used to place  things  that are meant to change in future. It includes configuration string for SQL server, and External base Url for pictures.
 
-KEY FEATURES:
+**KEY FEATURES:**
 	• Users can get event's images by Id.
 	
 	• Users can query events by page index and page size.
@@ -59,11 +59,11 @@ KEY FEATURES:
 	• Users can query events by CatalogHostId.
 	
 
-SCREENSHOTS:
+**SCREENSHOTS:**
 
-![Event Pic](https://github.com/sonali-mhihim/EventBritesOnContainers/blob/master/EventBritesOnContainers/EventCatalogAPI/Docs/Screenshots/Event pic.PNG)
+![Event Page](https://github.com/sonali-mhihim/EventBritesOnContainers/blob/master/EventBritesOnContainers/EventCatalogAPI/Docs/Screenshots/Event pic.PNG)
 
-![Catalog events pic](https://github.com//sonali-mhihim/EventBritesOnContainers/blob/master/EventBritesOnContainers/EventCatalogAPI/Docs/Screenshots/Catalog events pic.PNG)
+![Catalog events Page](https://github.com//sonali-mhihim/EventBritesOnContainers/blob/master/EventBritesOnContainers/EventCatalogAPI/Docs/Screenshots/Catalog events pic.PNG)
 
 
 
