@@ -9,7 +9,7 @@ namespace WebMvc.Infrastructure
     {
         public static class Catalog
         {
-            public static string GetAllEventTypes(string baseUri)
+            public static string GetAllTypes(string baseUri)
             {
                 return $"{baseUri}catalogtypes";
             }
@@ -17,7 +17,7 @@ namespace WebMvc.Infrastructure
             {
                 return $"{baseUri}cataloghosts";
             }
-            public static string GetAllCatalogItems(string baseUri, int page, int take, int? host, int? type)
+            public static string GetAllCatalogEvents(string baseUri, int page, int take, int? host, int? type)
             {
                 var filterQs = string.Empty;
                 if (host.HasValue || type.HasValue)
@@ -29,4 +29,5 @@ namespace WebMvc.Infrastructure
                 return $"{baseUri}items{filterQs}?pageIndex={page}&pageSize={take}";
             }
         }
+    }
 }
