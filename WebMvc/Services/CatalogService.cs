@@ -47,7 +47,7 @@ namespace WebMvc.Models
                     new SelectListItem
                     {
                         Value = host.Value<string>("id"),
-                        Text = host.Value<string>("host")
+                        Text = host.Value<string>("name")
                     });
             }
             return items;
@@ -73,7 +73,7 @@ namespace WebMvc.Models
                     new SelectListItem
                     {
                         Value = type.Value<string>("id"),
-                        Text = type.Value<string>("type")
+                        Text = type.Value<string>("name")
                     });
             }
             return items;
