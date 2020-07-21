@@ -11,7 +11,7 @@ namespace WebMvc.Infrastructure
         {
             public static string GetAllTypes(string baseUri)
             {
-                return $"{baseUri}catalogtypes";
+                return $"{baseUri}catalogeventtypes";
             }
             public static string GetAllHosts(string baseUri)
             {
@@ -22,11 +22,11 @@ namespace WebMvc.Infrastructure
                 var filterQs = string.Empty;
                 if (host.HasValue || type.HasValue)
                 {
-                    var hostQs = (host.HasValue) ? host.Value.ToString() : "null";
-                    var typeQs = (type.HasValue) ? type.Value.ToString() : "null";
-                    filterQs = $"/type/{typeQs}/brand/{hostQs}";
+                    var hostQs = (host.HasValue) ? host.Value.ToString() : "   ";
+                    var typeQs = (type.HasValue) ? type.Value.ToString() : "   ";
+                    filterQs = $"/type/{typeQs}/host/{hostQs}";
                 }
-                return $"{baseUri}items{filterQs}?pageIndex={page}&pageSize={take}";
+                return $"{baseUri}events{filterQs}?pageIndex={page}&pageSize={take}";
             }
         }
     }

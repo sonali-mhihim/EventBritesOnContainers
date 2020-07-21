@@ -17,8 +17,8 @@ namespace WebMvc.Controllers
         }
         public async Task<IActionResult> Index(int? page, int? hostFilterapplied, int? typesFilterApplied)
         {
-            var itemsOnPage = 10;
-            var catalog = await _service.GetCatalogEventsAsync(page ?? 0, itemsOnPage, hostFilterapplied, typesFilterApplied);
+            var eventsOnPage = 5;
+            var catalog = await _service.GetCatalogEventsAsync(page ?? 0, eventsOnPage, hostFilterapplied, typesFilterApplied);
             var vm = new CatalogIndexViewModel
             {
                 CatalogEvents = catalog.Data,
@@ -27,14 +27,13 @@ namespace WebMvc.Controllers
                 PaginationInfo = new PaginationInfo
                 {
                     ActualPage = page ?? 0,
-                    ItemsPerPage = itemsOnPage,
-                    TotalItems = catalog.Count,
-                    TotalPages = (int)Math.Ceiling((decimal)catalog.Count / itemsOnPage)
+                    EventsPerPage = catalog.PageSize,
+                    TotalEvents = catalog.Count,
+                    TotalPages = (int)Math.Ceiling((decimal)catalog.Count/eventsOnPage)
                 },
                 HostFilterApplied = hostFilterapplied?? 0,
-                TypeFilterApplied = typesFilterApplied ?? 0,
+                TypesFilterApplied = typesFilterApplied ?? 0
             };
-
             return View(vm);
             
         }

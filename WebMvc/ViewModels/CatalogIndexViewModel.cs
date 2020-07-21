@@ -14,6 +14,6 @@ namespace WebMvc.ViewModels
         public IEnumerable<CatalogEvent> CatalogEvents { get; set; }
         public PaginationInfo PaginationInfo { get; set; }
         public int? HostFilterApplied { get; set; }
-        public int? TypeFilterApplied { get; set; }
+        public int? TypesFilterApplied { get; set; }
     }
 }

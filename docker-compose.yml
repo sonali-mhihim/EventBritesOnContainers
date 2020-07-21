@@ -11,19 +11,35 @@ services:
       context: .\EventCatalogAPI
       dockerfile: Dockerfile
     environment:
-      ExternalCatalogBaseUrl: http://localhost:6810
+      ExternalCatalogBaseUrl: http://localhost:6850
       DatabaseServer: mssqlserver
       DatabaseName: catalogDb
       DatabaseUser: sa
       DatabasePassword: EventApi(!)
     ports:
-      - "6810:80"
+      - "6850:80"
     container_name: eventbritescatalogapi
     networks:
       - frontend
       - backend
     depends_on:
       - mssqlserver
+
+  webmvc:
+    image: jewels/webmvc
+    build:
+      context: .\WebMvc
+      dockerfile: Dockerfile
+    environment:
+      CatalogUrl: http://catalog
+    ports:
+      - "6852:80"
+    container_name: eventshop
+    networks:
+      - frontend
+    depends_on:
+      - catalog
+
 
   mssqlserver:
     image: "microsoft/mssql-server-linux:latest"
