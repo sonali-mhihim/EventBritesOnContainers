@@ -27,7 +27,7 @@ namespace EventCatalogAPI.Controllers
         }
 
         [HttpGet("[action]")]
-        public async Task<IActionResult> Events([FromQuery]int pageIndex = 0,[FromQuery]int pagesize = 3)
+        public async Task<IActionResult> Events([FromQuery]int pageIndex = 0, [FromQuery]int pagesize = 3)
         {
             var eventsCount = await _context.CatalogEvents.LongCountAsync();
             var events = await _context.CatalogEvents
@@ -49,13 +49,16 @@ namespace EventCatalogAPI.Controllers
 
         private List<CatalogEvent> ChangePictureUrl(List<CatalogEvent> events)
         {
-            events.ForEach(events => events.PictureUrl = events.PictureUrl.Replace("http://externalcatalogbaseurltobereplaced/", _config["ExternalCatalogBaseUrl"]));
+            events.ForEach(e =>
+                        e.PictureUrl = e.PictureUrl.Replace(
+                                    "http://externalcatalogbaseurltobereplaced",
+                                    _config["ExternalCatalogBaseUrl"]));
             return events;
         }
 
         [HttpGet]
         [Route("[action]")]
-        public async Task<IActionResult> CatalogEventTypes()
+        public async Task<IActionResult> CatalogTypes()
         {
             var types = await _context.CatalogEventTypes.ToListAsync();
             return Ok(types);

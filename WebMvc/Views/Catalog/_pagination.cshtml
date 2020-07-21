@@ -4,7 +4,7 @@
     <div class="container">
         <article class="esh-pager-wrapper row">
             <nav>
-                <a class="esh-pager-event esh-pager-event--navigable @Model.Previous"
+                <a class="esh-pager-item esh-pager-item--navigable @Model.Previous"
                    id="Previous"
                    asp-controller="Catalog"
                    asp-action="Index"
@@ -13,11 +13,11 @@
                     Previous
                 </a>
 
-                <span class="esh-pager-event">
+                <span class="esh-pager-item">
                     Showing @Model.EventsPerPage of @Model.TotalEvents products - Page @(Model.ActualPage + 1) - @Model.TotalPages
                 </span>
 
-                <a class="esh-pager-event esh-pager-event--navigable @Model.Next"
+                <a class="esh-pager-item esh-pager-item--navigable @Model.Next"
                    id="Next"
                    asp-controller="Catalog"
                    asp-action="Index"

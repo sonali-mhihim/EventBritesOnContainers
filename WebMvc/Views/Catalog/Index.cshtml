@@ -49,8 +49,8 @@
 
 <section class="esh-catalog-filters">
     <div class="container">
-        <form asp-action="Index" asp-controller="Catalog" method="post">
-            <label class="esh-catalog-label" data-title="brand">
+        <form asp-action="Index" asp-controller="Catalog" method="get">
+            <label class="esh-catalog-label" data-title="host">
                 <select asp-for="@Model.HostFilterApplied" asp-items="@Model.Hosts" class="esh-catalog-filter"></select>
             </label>
             <label class="esh-catalog-label" data-title="type">
@@ -65,10 +65,10 @@
     {
         @Html.Partial("_pagination", Model.PaginationInfo)
 
-        <div class="esh-catalog-events row">
+        <div class="esh-catalog-items row">
             @foreach (var catalogEvent in Model.CatalogEvents)
             {
-                <div class="esh-catalog-event col-md-4">
+                <div class="esh-catalog-item col-md-4">
                     @Html.Partial("_product", catalogEvent)
                 </div>
             }
@@ -78,7 +78,7 @@
     }
     else
     {
-        <div class="esh-catalog-events row">
+        <div class="esh-catalog-items row">
             THERE ARE NO RESULTS THAT MATCH YOUR SEARCH
         </div>
     }

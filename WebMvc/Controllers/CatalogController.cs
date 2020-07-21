@@ -15,10 +15,10 @@ namespace WebMvc.Controllers
         {
             _service = service;
         }
-        public async Task<IActionResult> Index(int? page, int? hostFilterapplied, int? typesFilterApplied)
+        public async Task<IActionResult> Index(int? page, int? hostFilterApplied, int? typesFilterApplied)
         {
             var eventsOnPage = 5;
-            var catalog = await _service.GetCatalogEventsAsync(page ?? 0, eventsOnPage, hostFilterapplied, typesFilterApplied);
+            var catalog = await _service.GetCatalogEventsAsync(page ?? 0, eventsOnPage, hostFilterApplied, typesFilterApplied);
             var vm = new CatalogIndexViewModel
             {
                 CatalogEvents = catalog.Data,
@@ -31,7 +31,7 @@ namespace WebMvc.Controllers
                     TotalEvents = catalog.Count,
                     TotalPages = (int)Math.Ceiling((decimal)catalog.Count/eventsOnPage)
                 },
-                HostFilterApplied = hostFilterapplied?? 0,
+                HostFilterApplied = hostFilterApplied ?? 0,
                 TypesFilterApplied = typesFilterApplied ?? 0
             };
             return View(vm);

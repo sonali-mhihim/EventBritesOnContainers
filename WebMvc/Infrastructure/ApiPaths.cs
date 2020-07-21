@@ -11,7 +11,7 @@ namespace WebMvc.Infrastructure
         {
             public static string GetAllTypes(string baseUri)
             {
-                return $"{baseUri}catalogeventtypes";
+                return $"{baseUri}catalogtypes";
             }
             public static string GetAllHosts(string baseUri)
             {
