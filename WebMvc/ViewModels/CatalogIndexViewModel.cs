@@ -13,7 +13,7 @@ namespace WebMvc.ViewModels
         public IEnumerable<SelectListItem> Types { get; set; }
         public IEnumerable<CatalogEvent> CatalogEvents { get; set; }
         public PaginationInfo PaginationInfo { get; set; }
-        public int? BrandFilterApplied { get; set; }
+        public int? HostFilterApplied { get; set; }
         public int? TypeFilterApplied { get; set; }
     }
 }

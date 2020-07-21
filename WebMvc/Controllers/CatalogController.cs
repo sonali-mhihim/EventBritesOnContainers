@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WebMvc.Services;
+using WebMvc.ViewModels;
 
 namespace WebMvc.Controllers
 {
@@ -14,11 +15,28 @@ namespace WebMvc.Controllers
         {
             _service = service;
         }
-        public async Task<IActionResult> Index(int? page, int? brandFilterapplied, int? typesFilterApplied)
+        public async Task<IActionResult> Index(int? page, int? hostFilterapplied, int? typesFilterApplied)
         {
             var itemsOnPage = 10;
-            var catalog = await _service.GetCatalogEventsAsync(page ?? 0, itemsOnPage, brandFilterapplied, typesFilterApplied);
-            return View();
+            var catalog = await _service.GetCatalogEventsAsync(page ?? 0, itemsOnPage, hostFilterapplied, typesFilterApplied);
+            var vm = new CatalogIndexViewModel
+            {
+                CatalogEvents = catalog.Data,
+                Hosts = await _service.GetHostsAsync(),
+                Types = await _service.GetTypesAsync(),
+                PaginationInfo = new PaginationInfo
+                {
+                    ActualPage = page ?? 0,
+                    ItemsPerPage = itemsOnPage,
+                    TotalItems = catalog.Count,
+                    TotalPages = (int)Math.Ceiling((decimal)catalog.Count / itemsOnPage)
+                },
+                HostFilterApplied = hostFilterapplied?? 0,
+                TypeFilterApplied = typesFilterApplied ?? 0,
+            };
+
+            return View(vm);
+            
         }
     }
 }

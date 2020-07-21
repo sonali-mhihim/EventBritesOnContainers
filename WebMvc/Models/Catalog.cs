@@ -10,6 +10,6 @@ namespace WebMvc.Models
         public int PageIndex { get; set; }
         public int PageSize { get; set; }
         public long Count { get; set; }
-        public List<Catalog> Data { get; set; }
+        public List<CatalogEvent> Data { get; set; }
     }
 }
