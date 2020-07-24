@@ -11,7 +11,7 @@
         </div>
 
         <div class="esh-catalog-price">
-            <span>@(Model.Price==0 ? "FREE": Model.Price.ToString("N2"))</span>
+            <span>@(Model.Price==0 ? "FREE": "$ "+ Model.Price.ToString("N2"))</span>
         </div>
         <div class="esh-catalog-date">
             <span>@Model.Date.ToString("MM/dd/yyyy h:mm tt")</span>
