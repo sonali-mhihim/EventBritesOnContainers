@@ -26,12 +26,15 @@ services:
       - mssqlserver
 
   webmvc:
-    image: jewels/webmvc
+    image: events/webmvc
     build:
       context: .\WebMvc
       dockerfile: Dockerfile
     environment:
       CatalogUrl: http://catalog
+      IdentityUrl: http://192.168.0.16:6700
+      CallBackUrl: http://localhost:6852
+      ASPNETCORE_ENVIRONMENT: Development
     ports:
       - "6852:80"
     container_name: eventshop
@@ -39,6 +42,22 @@ services:
       - frontend
     depends_on:
       - catalog
+
+  tokenserver:
+    build:
+      context: .\TokenServiceApi
+      dockerfile: Dockerfile
+    image: events/tokenapi
+    environment:
+      Mvcclient: http://localhost:6852
+    ports:
+      - "6700:80"
+    container_name: eventstokenserviceapi
+    networks:
+      - backend
+      - frontend
+    depends_on:
+      - mssqlserver
 
 
   mssqlserver:

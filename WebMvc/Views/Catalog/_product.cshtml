@@ -11,13 +11,13 @@
         </div>
 
         <div class="esh-catalog-price">
-            <span>@Model.Price.ToString("N2")</span>
+            <span>@(Model.Price==0 ? "FREE": Model.Price.ToString("N2"))</span>
         </div>
         <div class="esh-catalog-date">
-            <span>@Model.Date.ToString("dd/MM/yy")</span>
+            <span>@Model.Date.ToString("MM/dd/yyyy h:mm tt")</span>
         </div>
         <div class="esh-catalog-location">
-            <span>@Model.Location</span>
+            <span>@(Model.Location.Length > 30 ? (Model.Location.Substring(0,25)+"...") : Model.Location)</span>
         </div>
         <input type="hidden" asp-for="@Model.EventHost" name="host" />
         <input type="hidden" asp-for="@Model.CatalogHostId" name="hostId" />
