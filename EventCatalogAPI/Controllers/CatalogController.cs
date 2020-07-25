@@ -31,12 +31,14 @@ namespace EventCatalogAPI.Controllers
         {
             var eventsCount = await _context.CatalogEvents.LongCountAsync();
             var events = await _context.CatalogEvents
-                .OrderBy(c => c.Name)
+                .OrderBy(c => c.Date)
                 .Skip(pageIndex * pagesize)
                 .Take(pagesize)
                 .ToListAsync();
 
             events = ChangePictureUrl(events);
+            events = ChangeTimeOnDateEvent(events);//added
+
             var model = new PaginatedEventsViewModel<CatalogEvent>
             {
                 PageIndex = pageIndex,
@@ -53,6 +55,15 @@ namespace EventCatalogAPI.Controllers
                         e.PictureUrl = e.PictureUrl.Replace(
                                     "http://externalcatalogbaseurltobereplaced",
                                     _config["ExternalCatalogBaseUrl"]));
+            return events;
+        }
+
+        //Creating a random hour for each event due this field is gone on db
+        private List<CatalogEvent> ChangeTimeOnDateEvent(List<CatalogEvent> events)
+        {
+            Random rnd = new Random();
+            events.ForEach(e =>
+                        e.Date = e.Date.AddHours((int)rnd.Next(9, 18)));
             return events;
         }
 
@@ -101,6 +112,7 @@ namespace EventCatalogAPI.Controllers
             var eventsCount = query.LongCountAsync();
 
             events = ChangePictureUrl(events);
+            events = ChangeTimeOnDateEvent(events);
 
             var model = new PaginatedEventsViewModel<CatalogEvent>
             {
