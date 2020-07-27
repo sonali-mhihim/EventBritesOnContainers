@@ -32,7 +32,7 @@ services:
       dockerfile: Dockerfile
     environment:
       CatalogUrl: http://catalog
-      IdentityUrl: http://192.168.0.16:6700
+      IdentityUrl: http://192.168.86.121:6700
       CallBackUrl: http://localhost:6852
       ASPNETCORE_ENVIRONMENT: Development
     ports:
