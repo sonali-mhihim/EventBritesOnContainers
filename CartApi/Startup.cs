@@ -33,7 +33,7 @@ namespace CartApi
             services.AddTransient<ICartRepository, RedisCartRepository>();
             services.AddSingleton<ConnectionMultiplexer>(cm =>
             {
-                var configuration = ConfigurationOptions.Parse(Configuration["ConnnectioString"], false);
+                var configuration = ConfigurationOptions.Parse(Configuration["ConnectionString"], false);
                 configuration.ResolveDns = true;
                 configuration.AbortOnConnectFail = false;
                 return ConnectionMultiplexer.Connect(configuration);
