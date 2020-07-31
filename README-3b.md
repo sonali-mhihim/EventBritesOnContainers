@@ -24,7 +24,10 @@ create a different one.
 *	Users can create new accounts to login.
 
 **SCREENSHOTS:**
- 
+
+ ![Event main](https://github.com/sonali-mhihim/EventBritesOnContainers/blob/master/EventCatalogAPI/Docs/Screenshots/asg3b-1.png)
+ ![Event filter](https://github.com/sonali-mhihim/EventBritesOnContainers/blob/master/EventCatalogAPI/Docs/Screenshots/asg3b-2.gif)
+ ![Event login](https://github.com/sonali-mhihim/EventBritesOnContainers/blob/master/EventCatalogAPI/Docs/Screenshots/asg3b-3.gif)
 
 
 **REQUIREMENTS TO RUN THE DEMO**
