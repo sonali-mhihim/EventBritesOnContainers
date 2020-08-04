@@ -32,7 +32,8 @@ services:
       dockerfile: Dockerfile
     environment:
       CatalogUrl: http://catalog
-      IdentityUrl: http://192.166.086.121:6701
+      CartUrl: http://cart
+      IdentityUrl: http://192.168.7.58:6701
       CallBackUrl: http://localhost:6852
       ASPNETCORE_ENVIRONMENT: Development
     ports:
@@ -42,6 +43,8 @@ services:
       - frontend
     depends_on:
       - catalog
+      - cart
+      - tokenserver
 
   tokenserver:
     build:
@@ -92,7 +95,7 @@ services:
 
   basket.data:
     image: redis
-    container_name:basketdata
+    container_name: basketdata
     ports:
       - "6081:6379"
     networks:
