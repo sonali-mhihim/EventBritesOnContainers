@@ -10,15 +10,15 @@ using WebMvc.Services;
 using WebMvc.Models;
 using WebMvc.Models.CartModels;
 using Polly.CircuitBreaker;
-using WebMvc.Services;
-using WebMvc.Models;
+
+
 
 namespace WebMvc.Controllers
 {
     [Authorize]
     public class CartController : Controller
     {
-        
+
         private readonly ICartService _cartService;
         private readonly ICatalogService _catalogService;
         private readonly IIdentityService<ApplicationUser> _identityService;
@@ -32,25 +32,11 @@ namespace WebMvc.Controllers
 
 
         }
-        //public    IActionResult  Index()
-        //{
-            //try
-            //{
+        public IActionResult Index()
+        {
+            return View();
+        }
 
-            //    var user = _identityService.Get(HttpContext.User);
-            //    var cart = await _cartService.GetCart(user);
-
-
-            //    return View();
-            //}
-            //catch (BrokenCircuitException)
-            //{
-            //    // Catch error when CartApi is in circuit-opened mode                 
-            //    HandleBrokenCircuitException();
-            //}
-
-            //return View();
-        //}
 
         [HttpPost]
         public async Task<IActionResult> Index(Dictionary<string, int> quantities, string action)
@@ -78,7 +64,7 @@ namespace WebMvc.Controllers
 
         }
 
-            public async Task<IActionResult> AddToCart(CatalogEvent productDetails)
+        public async Task<IActionResult> AddToCart(CatalogEvent productDetails)
         {
             try
             {
@@ -89,10 +75,10 @@ namespace WebMvc.Controllers
                     {
                         Id = Guid.NewGuid().ToString(),
                         Quantity = 1,
-                        ProductName = productDetails.Name,
+                        EventName = productDetails.Name,
                         PictureUrl = productDetails.PictureUrl,
                         UnitPrice = productDetails.Price,
-                        ProductId = productDetails.Id.ToString()
+                        EventId = productDetails.Id.ToString()
                     };
                     await _cartService.AddItemToCart(user, product);
                 }

@@ -28,7 +28,7 @@ namespace WebMvc.Services
         public CartService(IHttpContextAccessor httpContextAccesor, IHttpClient httpClient, ILoggerFactory logger, IConfiguration config)
         {
             _config = config;
-            _remoteServiceBaseUrl = $"{_config["CartUrl"]}/api/v1/cart";
+            _remoteServiceBaseUrl = $"{_config["CartUrl"]}/api/cart";
             _httpContextAccesor = httpContextAccesor;
             _apiClient = httpClient;
             _logger = logger.CreateLogger<CartService>();
@@ -48,7 +48,7 @@ namespace WebMvc.Services
                 };
             }
             var basketItem = cart.Items
-                .Where(p => p.ProductId == product.ProductId)
+                .Where(p => p.EventId == product.EventId)
                 .FirstOrDefault();
             if (basketItem == null)
             {
