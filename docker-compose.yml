@@ -33,7 +33,7 @@ services:
     environment:
       CatalogUrl: http://catalog
       CartUrl: http://cart
-      IdentityUrl:  http://192.168.0.16:6701
+      IdentityUrl:  http://192.168.8.1:6701
       CallBackUrl: http://localhost:6852
       OrderUrl: http://order
       StripePublicKey: pk_test_51HCgllBV5ZRZy5HKvtUGDYq04pb0ok0NGyIcyMRiRFB3FmwXIvSB99spqhGdwZEE3EwLmdStJYbGcSyqES3WM71500TYIvpplH
@@ -73,7 +73,7 @@ services:
       dockerfile: Dockerfile
     image: events/cartapi
     environment:
-      IdentityUrl:  http://192.168.0.16:6701
+      IdentityUrl:  http://192.168.8.1:6701
       ConnectionString: basket.data
     ports:
       - "6815:80"
@@ -98,7 +98,7 @@ services:
       }
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-      IdentityUrl: http://192.168.0.16:6701
+      IdentityUrl: http://192.168.8.1:6701
       DatabaseServer: mssqlserver
       DatabaseName: OrdersDb
       DatabaseUser: sa
