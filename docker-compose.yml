@@ -33,8 +33,11 @@ services:
     environment:
       CatalogUrl: http://catalog
       CartUrl: http://cart
-      IdentityUrl: http://192.16.80.121:6701
+      IdentityUrl:  http://192.168.0.16:6701
       CallBackUrl: http://localhost:6852
+      OrderUrl: http://order
+      StripePublicKey: pk_test_51HCgllBV5ZRZy5HKvtUGDYq04pb0ok0NGyIcyMRiRFB3FmwXIvSB99spqhGdwZEE3EwLmdStJYbGcSyqES3WM71500TYIvpplH
+      StripePrivateKey: sk_test_51HCgllBV5ZRZy5HKxAkNs9nVIQl3TtYnr5wbC2pkg937HXKbLajN8UcTQQ5A8LkXLyksVU0gpCIWusUpXj2bvQ4x00rX5OxiWN
       ASPNETCORE_ENVIRONMENT: Development
     ports:
       - "6852:80"
@@ -44,6 +47,7 @@ services:
     depends_on:
       - catalog
       - cart
+      - order
       - tokenserver
 
   tokenserver:
@@ -69,7 +73,7 @@ services:
       dockerfile: Dockerfile
     image: events/cartapi
     environment:
-      IdentityUrl: http://192.16.80.121:6701
+      IdentityUrl:  http://192.168.0.16:6701
       ConnectionString: basket.data
     ports:
       - "6815:80"
@@ -81,6 +85,33 @@ services:
       - tokenserver
       - basket.data
 
+  order:
+    build:
+      context: .\OrderApi
+      dockerfile: Dockerfile
+    image: events/orderapi
+    logging:
+      driver: "json-file"
+      options: {
+        max-size: "200K",
+        max-file: "10"
+      }
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      IdentityUrl: http://192.168.0.16:6701
+      DatabaseServer: mssqlserver
+      DatabaseName: OrdersDb
+      DatabaseUser: sa
+      DatabasePassword: EventApi(!)
+    ports:
+      - "6813:80"
+    container_name: orderapi
+    networks:
+      - backend
+      - frontend
+    depends_on:
+      - mssqlserver
+      - tokenserver
 
   mssqlserver:
     image: "microsoft/mssql-server-linux:latest"
