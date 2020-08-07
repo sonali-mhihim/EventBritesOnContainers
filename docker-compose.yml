@@ -33,7 +33,7 @@ services:
     environment:
       CatalogUrl: http://catalog
       CartUrl: http://cart
-      IdentityUrl:  http://192.168.8.1:6701
+      IdentityUrl:  http://192.168.86.121:6701
       CallBackUrl: http://localhost:6852
       OrderUrl: http://order
       StripePublicKey: pk_test_51HCgllBV5ZRZy5HKvtUGDYq04pb0ok0NGyIcyMRiRFB3FmwXIvSB99spqhGdwZEE3EwLmdStJYbGcSyqES3WM71500TYIvpplH
@@ -73,7 +73,7 @@ services:
       dockerfile: Dockerfile
     image: events/cartapi
     environment:
-      IdentityUrl:  http://192.168.8.1:6701
+      IdentityUrl:  http://192.168.86.121:6701
       ConnectionString: basket.data
     ports:
       - "6815:80"
@@ -84,6 +84,7 @@ services:
     depends_on:
       - tokenserver
       - basket.data
+      - rabbitmq
 
   order:
     build:
@@ -98,7 +99,7 @@ services:
       }
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-      IdentityUrl: http://192.168.8.1:6701
+      IdentityUrl: http://192.168.86.121:6701
       DatabaseServer: mssqlserver
       DatabaseName: OrdersDb
       DatabaseUser: sa
@@ -112,6 +113,7 @@ services:
     depends_on:
       - mssqlserver
       - tokenserver
+      - rabbitmq
 
   mssqlserver:
     image: "microsoft/mssql-server-linux:latest"
@@ -129,5 +131,18 @@ services:
     container_name: basketdata
     ports:
       - "6081:6379"
+    networks:
+      - backend
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    hostname: myrabbitmq
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+      - "5671:5671"
+    volumes:
+      - ~/rabbitmq:/var/lib/rabbitmq/mnesia
     networks:
       - backend

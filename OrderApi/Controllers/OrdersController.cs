@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using Common.Messaging;
+using MassTransit;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -23,10 +25,12 @@ namespace OrderApi.Controllers
 
         private readonly IConfiguration _config;
 
+        private readonly IPublishEndpoint _bus;
+
         private readonly ILogger<OrdersController> _logger;
         public OrdersController(OrdersContext ordersContext,
             ILogger<OrdersController> logger,
-            IConfiguration config
+            IConfiguration config, IPublishEndpoint bus
             )
         {
             _config = config;
@@ -34,6 +38,7 @@ namespace OrderApi.Controllers
 
             ordersContext.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
             _logger = logger;
+            _bus = bus;
         }
 
         // POST api/Order/new
@@ -61,6 +66,7 @@ namespace OrderApi.Controllers
             {
                 await _ordersContext.SaveChangesAsync();
                 _logger.LogWarning("BuyerId is: " + order.BuyerId);
+                _bus.Publish(new OrderCompletedEvent(order.BuyerId)).Wait();
 
                 return Ok(new { order.OrderId });
             }
