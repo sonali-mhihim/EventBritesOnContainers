@@ -21,8 +21,7 @@ me@myemail.com and create new users.
 As previous phase, images as logo of project and images for banner are stored on wwwroot folder on Mvc. For authentication we add account controller, home Controller and manage 
 controller as well as new model to manage errors on UI (ErrorViewModel).
 
-Docker-compose file includes new container to run Token Service and we are using the same sqlserver container as CatalogEvent for demonstration purposes although it's possible 
-create a different one.
+Docker-compose file includes new containers to run Token Service, Cart Service and Orden Service. We are using the same sqlserver container as CatalogEvent for demonstration purposes although it's possible create a different one for each service. To process a card transaction we integrated Stripe so it is possible use real information in a furure. 
 
 **KEY FEATURES:**
 *	UI allows users to see all events and filter by host or/and type of event.
